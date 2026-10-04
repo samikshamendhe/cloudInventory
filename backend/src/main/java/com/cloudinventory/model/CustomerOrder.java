@@ -1,6 +1,10 @@
 package com.cloudinventory.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "orders")
@@ -11,9 +15,16 @@ public class CustomerOrder {
     private Long id;
 
     private String customerName;
+
     private Long productId;
+
     private int quantity;
-    private double amount;
+
+    // Use Double instead of primitive double so a missing/null
+    // amount from the client can be handled safely.
+    // The backend calculates the final amount before saving.
+    private Double amount;
+
     private String status;
 
     public CustomerOrder() {
@@ -23,7 +34,7 @@ public class CustomerOrder {
             String customerName,
             Long productId,
             int quantity,
-            double amount,
+            Double amount,
             String status) {
 
         this.customerName = customerName;
@@ -35,6 +46,10 @@ public class CustomerOrder {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCustomerName() {
@@ -61,11 +76,11 @@ public class CustomerOrder {
         this.quantity = quantity;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
