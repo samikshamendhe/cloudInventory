@@ -18,3 +18,8 @@ backend/target/
 
 # macOS
 .DS_Store
+*.sqlite3
+*.db
+cloudinventory-migration-*/
+legacy-products.json
+legacy-orders.json
