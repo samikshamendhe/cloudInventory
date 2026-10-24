@@ -1,25 +1,28 @@
-# Dependencies
-node_modules/
+# Python
+.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
 
-# Frontend build
+# Frontend
+node_modules/
 frontend/dist/
 
-# Backend build
-backend/target/
-
-# Environment / secrets
+# Secrets
 .env
 .env.*
 !.env.example
 
-# IDE files
-.idea/
-.vscode/
-
-# macOS
-.DS_Store
+# Local database files and data exports
+*.sqlite
 *.sqlite3
 *.db
 cloudinventory-migration-*/
 legacy-products.json
 legacy-orders.json
+
+# IDE and operating system
+.idea/
+.vscode/
+.DS_Store
